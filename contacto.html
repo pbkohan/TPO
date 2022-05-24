@@ -42,49 +42,6 @@
             <textarea name="comentarios" id="comentarios" cols="80" rows="10">Escribe tus comentarios aquí</textarea><br><br>
             <input type="submit" value="Enviar">
             </form>
-            <script>
-                var formulario = document.getElementsByName('formulario')[0];
-
-                var validarNombre = function(e){
-                    if (formulario.nombre.value == 0){
-                        alert("Campo nombre vacío");
-                        e.preventDefault();
-                    }
-                };
-                var validarMail = function(e){
-                    if(formulario.mail.value == 0){
-                        alert("Campo mail vacío");
-                        e.preventDefault();
-                    }
-                };
-               var validarRadio = function(e){
-                   if(formulario.abogado[0].checked == true || formulario.abogado[1].checked == true || formulario.abogado[2].checked == true){
-                    } else{
-                        alert("Debés responder si sos abogado");
-                        e.preventDefault();
-                    }
-               }
-               var validarUtilidad = function(e){
-                   if(formulario.utilidad.selectedIndex == 0){
-                       alert("Debés elegir una opción en 'Esta página me resultó'");
-                       e.preventDefault();
-                   }
-               }
-               var validarComentarios = function(e){
-                   if(formulario.comentarios.value.length == 0){
-                       alert("Debés escribir tu comentario");
-                       e.preventDefault();
-                   }
-               }
-                var validar = function(e){
-                    validarNombre(e);
-                    validarMail(e);
-                    validarRadio(e);
-                    validarUtilidad(e);
-                    validarComentarios(e);
-                }
-                formulario.addEventListener("submit", validar);
-            </script>
         </div>
         <div class="aside">
             <h2>¿Dónde queda el Palacio de Justicia?</h2>
@@ -97,5 +54,6 @@
             <i class="fa-solid fa-scale-unbalanced-flip"></i>
         </div>
     </div>
+    <script src="js/validacion.js"></script>
 </body>
 </html>

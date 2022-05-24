@@ -21,56 +21,79 @@
         <div class="main">
             <h3>Contactate con nosotros</h3>
             <br>
-            <form action="showdata.html" method="post" target="_blank">
+            <form action="" name="formulario" method="get">
             <label for="nombre">Nombre:</label><input type="text" id="nombre" name="nombre">
-            <label for="apellido">Apellido:</label><input type="text" id="apellido" name="apellido"><br><br>
-            <fieldset>
-                <legend>Dirección:</legend>
-                <label for="calle">Calle:</label><input type="text" id="calle" name="calle">
-                <label for="numero">Número:</label><input type="number" id="numero" name="numero">
-                <br>
-                <label for="ciudad">Ciudad:</label><input type="text" id="ciudad" name="ciudad">
-                <label for="cp">Código postal:</label><input type="number" id="cp" name="cp">
-            </fieldset>
             <br><br>
-            <label for="telefono">Teléfono:</label><input type="number" id="telefono" name="telefono">
             <label for="mail">Mail:</label><input type="email" id="mail" name="mail">
             <br><br>
-            <fieldset>
-                <legend>¿Sos abogado?</legend>
-                <input type="radio" name="abogado" value="si" checked>Sí
-                <input type="radio" name="abogado" value="no" checked>No
-                <input type="radio" name="abogado" value="estudiante" checked>Estoy estudiando
-            </fieldset><br><br>
-            <fieldset>
-                <legend>Acercamiento al mundo del derecho:</legend>
-                <input type="checkbox" name="ejercicioprof" value="litigante">Soy abogado de a pie (litigante)
-                <input type="checkbox" name="ejercicioprof" value="estudiojuridico">Trabajo en un estudio jurídico
-                <input type="checkbox" name="ejercicioprof" value="procuracion">Procuro
-                <input type="checkbox" name="ejercicioprof" value="docente">Soy docente
-                <input type="checkbox" name="ejercicioprof" value="investigacion">Investigación académica
-                <input type="checkbox" name="ejercicioprof" value="ninguno">Ninguno               
-            </fieldset><br><br>
+            <label for="abogado"><h4>¿Sos abogado?</h4></label>
+            <input type="radio" name="abogado" value="si">Sí
+            <input type="radio" name="abogado" value="no">No
+            <input type="radio" name="abogado" value="estudiante">Estoy estudiando<br><br>
             <label for="utilidad">Esta página me resultó:</label>
-                <select name="estudios" id="estudios">
+                <select name="utilidad" id="utilidad">
+                    <option value="Elegir">Elegir</option>
                     <option value="muy">Muy útil</option>
                     <option value="algo">Algo útil</option>
                     <option value="poco">Poco útil</option>
                     <option value="nada">Nada útil</option>
                 </select><br><br>
             <label for="comentarios">Comentarios:</label><br>
-            <textarea name="comentarios" id="comentarios" cols="100" rows="10">Escribe tus comentarios aquí</textarea><br><br>
+            <textarea name="comentarios" id="comentarios" cols="80" rows="10">Escribe tus comentarios aquí</textarea><br><br>
             <input type="submit" value="Enviar">
-        </form>
+            </form>
+            <script>
+                var formulario = document.getElementsByName('formulario')[0];
+
+                var validarNombre = function(e){
+                    if (formulario.nombre.value == 0){
+                        alert("Campo nombre vacío");
+                        e.preventDefault();
+                    }
+                };
+                var validarMail = function(e){
+                    if(formulario.mail.value == 0){
+                        alert("Campo mail vacío");
+                        e.preventDefault();
+                    }
+                };
+               var validarRadio = function(e){
+                   if(formulario.abogado[0].checked == true || formulario.abogado[1].checked == true || formulario.abogado[2].checked == true){
+                    } else{
+                        alert("Debés responder si sos abogado");
+                        e.preventDefault();
+                    }
+               }
+               var validarUtilidad = function(e){
+                   if(formulario.utilidad.selectedIndex == 0){
+                       alert("Debés elegir una opción en 'Esta página me resultó'");
+                       e.preventDefault();
+                   }
+               }
+               var validarComentarios = function(e){
+                   if(formulario.comentarios.value.length == 0){
+                       alert("Debés escribir tu comentario");
+                       e.preventDefault();
+                   }
+               }
+                var validar = function(e){
+                    validarNombre(e);
+                    validarMail(e);
+                    validarRadio(e);
+                    validarUtilidad(e);
+                    validarComentarios(e);
+                }
+                formulario.addEventListener("submit", validar);
+            </script>
         </div>
         <div class="aside">
-            <h2>¿Cómo llego al Palacio de Justicia?</h2>
+            <h2>¿Dónde queda el Palacio de Justicia?</h2>
             <br>
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.079713042646!2d-58.387927785195316!3d-34.6021457649211!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccac65d29d149%3A0x3b4fed2f208ca218!2sTalcahuano%20550%2C%20C1013AAL%20CABA!5e0!3m2!1ses-419!2sar!4v1653158839832!5m2!1ses-419!2sar" width="350" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
         <div class="footer">
             <i class="fa-solid fa-scale-unbalanced"></i>
-            <b>Derechos reservados @2022</b>
+            <b>Derechos reservados &copy2022</b>
             <i class="fa-solid fa-scale-unbalanced-flip"></i>
         </div>
     </div>

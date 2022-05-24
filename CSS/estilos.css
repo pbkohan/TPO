@@ -7,19 +7,19 @@
 }
 .container{
     display: grid;
-    grid-template-columns: 0.40fr 1.5fr 1.10fr;
-    grid-template-rows: 0.75fr 1.5fr 0.75fr;
+    grid-template-columns: 0.50fr 1.5fr 1fr;
+    grid-template-rows: 0.50fr 2fr 0.50fr;
     grid-template-areas: "header header header"
                         "nav main aside"
                         "footer footer footer";
     grid-gap: 5px;
-    height: 50vh;
+    height: 100vh;
     margin: 10px;
 }
 .header{
     grid-area: header;
     margin: 5px;
-    padding: 10px;
+    padding: 30px;
     background-color: #333333;
     border-radius: 10px;
 }
@@ -51,7 +51,7 @@
     margin: 5px;
     text-align: center;
     background-color: #222222;
-    padding: 10px;
+    padding: 30px;
     border-radius: 10px;
 }
 .link{
@@ -92,7 +92,7 @@ a:hover{
                             "aside"
                             "footer";
         grid-gap: 5px;
-        height: 50vh;
+        height: 100vh;
         margin: 10px;
     }
 }
@@ -105,7 +105,7 @@ a:hover{
                             "aside aside"
                             "footer footer";
         grid-gap: 5px;
-        height: 50vh;
+        height: 100vh;
         margin: 10px;
     }
 }
